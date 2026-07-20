@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 @plugin "daisyui";
 
 @keyframes marquee {
@@ -7,4 +7,4 @@
 }
 .animate-marquee {
   animation: marquee 15s linear infinite;
-}s
+}
