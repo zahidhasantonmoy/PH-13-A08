@@ -1,7 +1,7 @@
 import TileCard from "./TileCard";
 
 export default async function FeaturedTiles() {
-  const res = await fetch(process.env.API_URL + "/tiles");
+  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/tiles");
   const allTiles = await res.json();
 
   const featured = [];
@@ -27,4 +27,4 @@ export default async function FeaturedTiles() {
       </div>
     </section>
   );
-}
+}s

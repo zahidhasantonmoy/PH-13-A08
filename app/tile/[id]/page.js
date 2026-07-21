@@ -4,7 +4,7 @@ export default async function TileDetailsPage({ params }) {
   const awaitedParams = await params;
   const tileId = awaitedParams.id;
 
-  const res = await fetch(process.env.API_URL + "/tiles/" + tileId);
+  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/tiles/" + tileId);
 
   if (res.status === 404) {
     return (
