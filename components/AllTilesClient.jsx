@@ -4,7 +4,7 @@ import { useState } from "react";
 import TileCard from "./TileCard";
 
 export default function AllTilesClient({ tiles }) {
-  const [searchText, useState] = useState("");
+  const [searchText, setSearchText] = useState("");
 
   const filteredTiles = [];
   for (let i = 0; i < tiles.length; i++) {

@@ -6,9 +6,21 @@ import "swiper/css/pagination";
 import Link from "next/link";
 
 const slides = [];
-slides.push({ title: "Discover Your Perfect Aesthetic", img: "https://placehold.co/1200x500/1e3a8a/ffffff?text=Modern+Tiles" });
-slides.push({ title: "Premium Ceramic Collection", img: "https://placehold.co/1200x500/065f46/ffffff?text=Ceramic+Tiles" });
-slides.push({ title: "Elegant Marble Designs", img: "https://placehold.co/1200x500/78350f/ffffff?text=Marble+Tiles" });
+
+slides.push({
+  title: "Discover Your Perfect Aesthetic",
+  img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80"
+});
+
+slides.push({
+  title: "Premium Ceramic Collection",
+  img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80"
+});
+
+slides.push({
+  title: "Elegant Marble Designs",
+  img: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=80"
+});
 
 export default function Banner() {
   const list1 = [];

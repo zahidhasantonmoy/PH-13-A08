@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "TileHive - Tiles Gallery",
+  title: "Tiles Gallery",
   description: "A website to showcase a beautiful tile gallery",
 };
 

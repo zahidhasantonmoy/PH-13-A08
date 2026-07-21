@@ -1,29 +1,41 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 
 export default function Navbar() {
-  const x = [];
-  x.push({ a: "/", b: "Home" });
-  x.push({ a: "/all-tiles", b: "All Tiles" });
-  x.push({ a: "/my-profile", b: "My Profile" });
+  const router = useRouter();
+  const { data: session } = authClient.useSession();
 
-  const list1 = [];
-  for (let i = 0; i < x.length; i++) {
-    const item1 = x[i];
-    list1.push(
+  const navLinks = [];
+  navLinks.push({ a: "/", b: "Home" });
+  navLinks.push({ a: "/all-tiles", b: "All Tiles" });
+  navLinks.push({ a: "/my-profile", b: "My Profile" });
+
+  const mobileList = [];
+  for (let i = 0; i < navLinks.length; i++) {
+    const item = navLinks[i];
+    mobileList.push(
       <li key={i}>
-        <Link href={item1.a}>{item1.b}</Link>
+        <Link href={item.a}>{item.b}</Link>
       </li>
     );
   }
 
-  const list2 = [];
-  for (let j = 0; j < x.length; j++) {
-    const item2 = x[j];
-    list2.push(
+  const desktopList = [];
+  for (let j = 0; j < navLinks.length; j++) {
+    const item2 = navLinks[j];
+    desktopList.push(
       <Link key={j} href={item2.a}>
         {item2.b}
       </Link>
     );
+  }
+
+  async function handleLogout() {
+    await authClient.signOut();
+    router.push("/");
   }
 
   return (
@@ -37,7 +49,7 @@ export default function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box shadow mt-3 w-40 z-10"
           >
-            {list1}
+            {mobileList}
           </ul>
         </div>
         <Link href="/" className="text-xl font-bold ml-2">
@@ -45,12 +57,28 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="navbar-center hidden md:flex gap-6">{list2}</div>
+      <div className="navbar-center hidden md:flex gap-6">{desktopList}</div>
 
-      <div className="navbar-end">
-        <Link href="/login" className="btn btn-primary btn-sm">
-          Login
-        </Link>
+      <div className="navbar-end gap-2">
+        {session ? (
+          <>
+            <Link href="/my-profile" className="btn btn-ghost btn-circle avatar">
+              <div className="w-8 rounded-full">
+                <img
+                  src={session.user.image || "https://placehold.co/100x100?text=U"}
+                  alt="profile"
+                />
+              </div>
+            </Link>
+            <button onClick={handleLogout} className="btn btn-outline btn-sm">
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link href="/login" className="btn btn-primary btn-sm">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

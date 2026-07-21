@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="footer footer-center bg-base-200 text-base-content p-10 mt-16">
       <nav className="grid grid-flow-col gap-4">{list1}</nav>
       <aside>
-        <p>© 2026 TileHive — All rights reserved</p>
+        <p>2026 Tiles Gallery </p>
       </aside>
     </footer>
   );
