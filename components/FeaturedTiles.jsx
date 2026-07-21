@@ -1,13 +1,14 @@
-import tiles from "@/data/tiles.json";
 import TileCard from "./TileCard";
 
-export default function FeaturedTiles() {
+export default async function FeaturedTiles() {
+  var res = await fetch(process.env.API_URL + "/tiles");
+  var allTiles = await res.json();
+
   var featured = [];
   var count = 0;
-
-  for (var i = 0; i < tiles.length; i++) {
+  for (var i = 0; i < allTiles.length; i++) {
     if (count < 4) {
-      featured.push(tiles[i]);
+      featured.push(allTiles[i]);
       count = count + 1;
     }
   }
