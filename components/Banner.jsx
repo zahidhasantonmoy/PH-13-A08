@@ -5,17 +5,17 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Link from "next/link";
 
-var slides = [];
+const slides = [];
 slides.push({ title: "Discover Your Perfect Aesthetic", img: "https://placehold.co/1200x500/1e3a8a/ffffff?text=Modern+Tiles" });
 slides.push({ title: "Premium Ceramic Collection", img: "https://placehold.co/1200x500/065f46/ffffff?text=Ceramic+Tiles" });
 slides.push({ title: "Elegant Marble Designs", img: "https://placehold.co/1200x500/78350f/ffffff?text=Marble+Tiles" });
 
 export default function Banner() {
-  var list1 = [];
+  const list1 = [];
 
-  for (var i = 0; i < slides.length; i++) {
-    var item1 = slides[i];
-    var bg = "url(" + item1.img + ")";
+  for (let i = 0; i < slides.length; i++) {
+    const item1 = slides[i];
+    const bg = "url(" + item1.img + ")";
 
     list1.push(
       <SwiperSlide key={i}>

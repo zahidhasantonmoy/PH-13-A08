@@ -1,21 +1,21 @@
 import TileCard from "./TileCard";
 
 export default async function FeaturedTiles() {
-  var res = await fetch(process.env.API_URL + "/tiles");
-  var allTiles = await res.json();
+  const res = await fetch(process.env.API_URL + "/tiles");
+  const allTiles = await res.json();
 
-  var featured = [];
-  var count = 0;
-  for (var i = 0; i < allTiles.length; i++) {
+  const featured = [];
+  let count = 0;
+  for (let i = 0; i < allTiles.length; i++) {
     if (count < 4) {
       featured.push(allTiles[i]);
       count = count + 1;
     }
   }
 
-  var list1 = [];
-  for (var j = 0; j < featured.length; j++) {
-    var item1 = featured[j];
+  const list1 = [];
+  for (let j = 0; j < featured.length; j++) {
+    const item1 = featured[j];
     list1.push(<TileCard key={item1.id} tile={item1} />);
   }
 

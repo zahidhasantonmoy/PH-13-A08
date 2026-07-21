@@ -4,21 +4,21 @@ import { useState } from "react";
 import TileCard from "./TileCard";
 
 export default function AllTilesClient({ tiles }) {
-  var [searchText, setSearchText] = useState("");
+  const [searchText, useState] = useState("");
 
-  var filteredTiles = [];
-  for (var i = 0; i < tiles.length; i++) {
-    var tile = tiles[i];
-    var titleLower = tile.title.toLowerCase();
-    var searchLower = searchText.toLowerCase();
+  const filteredTiles = [];
+  for (let i = 0; i < tiles.length; i++) {
+    const tile = tiles[i];
+    const titleLower = tile.title.toLowerCase();
+    const searchLower = searchText.toLowerCase();
     if (titleLower.indexOf(searchLower) !== -1) {
       filteredTiles.push(tile);
     }
   }
 
-  var list1 = [];
-  for (var j = 0; j < filteredTiles.length; j++) {
-    var item1 = filteredTiles[j];
+  const list1 = [];
+  for (let j = 0; j < filteredTiles.length; j++) {
+    const item1 = filteredTiles[j];
     list1.push(<TileCard key={item1.id} tile={item1} />);
   }
 

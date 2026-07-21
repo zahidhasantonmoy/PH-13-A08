@@ -1,14 +1,14 @@
 import Link from "next/link";
 
 export default function Navbar() {
-  var x = [];
+  const x = [];
   x.push({ a: "/", b: "Home" });
   x.push({ a: "/all-tiles", b: "All Tiles" });
   x.push({ a: "/my-profile", b: "My Profile" });
 
-  var list1 = [];
-  for (var i = 0; i < x.length; i++) {
-    var item1 = x[i];
+  const list1 = [];
+  for (let i = 0; i < x.length; i++) {
+    const item1 = x[i];
     list1.push(
       <li key={i}>
         <Link href={item1.a}>{item1.b}</Link>
@@ -16,9 +16,9 @@ export default function Navbar() {
     );
   }
 
-  var list2 = [];
-  for (var j = 0; j < x.length; j++) {
-    var item2 = x[j];
+  const list2 = [];
+  for (let j = 0; j < x.length; j++) {
+    const item2 = x[j];
     list2.push(
       <Link key={j} href={item2.a}>
         {item2.b}

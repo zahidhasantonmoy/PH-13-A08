@@ -1,12 +1,12 @@
 export default function Footer() {
-  var links1 = [];
+  const links1 = [];
   links1.push("Facebook");
   links1.push("Instagram");
   links1.push("Contact Us");
 
-  var list1 = [];
-  for (var i = 0; i < links1.length; i++) {
-    var item1 = links1[i];
+  const list1 = [];
+  for (let i = 0; i < links1.length; i++) {
+    const item1 = links1[i];
     list1.push(
       <a key={i} className="link link-hover">
         {item1}

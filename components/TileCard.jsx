@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 export default function TileCard({ tile }) {
-  var img1 = tile.image;
-  var title1 = tile.title;
-  var desc1 = tile.description;
-  var id1 = tile.id;
-  var link1 = "/tile/" + id1;
+  const img1 = tile.image;
+  const title1 = tile.title;
+  const desc1 = tile.description;
+  const id1 = tile.id;
+  const link1 = "/tile/" + id1;
 
   return (
     <div className="card bg-base-100 shadow-md hover:shadow-xl transition">
