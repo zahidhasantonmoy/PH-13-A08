@@ -27,4 +27,4 @@ export default async function FeaturedTiles() {
       </div>
     </section>
   );
-}s
+}
