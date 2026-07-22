@@ -1,8 +1,16 @@
 import TileCard from "./TileCard";
 
 export default async function FeaturedTiles() {
-  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/tiles");
-  const allTiles = await res.json();
+  let allTiles = [];
+
+  try {
+    const res = await fetch(process.env.API_URL + "/tiles", { cache: "no-store" });
+    if (res.ok) {
+      allTiles = await res.json();
+    }
+  } catch (error) {
+    allTiles = [];
+  }
 
   const featured = [];
   let count = 0;
@@ -11,6 +19,14 @@ export default async function FeaturedTiles() {
       featured.push(allTiles[i]);
       count = count + 1;
     }
+  }
+
+  if (featured.length === 0) {
+    return (
+      <section className="py-12 px-4 md:px-10 text-center">
+        <p className="text-gray-500">Tiles are loading, please refresh in a moment.</p>
+      </section>
+    );
   }
 
   const list1 = [];

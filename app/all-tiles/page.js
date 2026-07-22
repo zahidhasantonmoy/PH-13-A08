@@ -1,8 +1,16 @@
 import AllTilesClient from "@/components/AllTilesClient";
-export const dynamic = "force-dynamic";
+
 export default async function AllTilesPage() {
-  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/api/tiles");
-  const allTiles = await res.json();
+  let allTiles = [];
+
+  try {
+    const res = await fetch(process.env.API_URL + "/tiles", { cache: "no-store" });
+    if (res.ok) {
+      allTiles = await res.json();
+    }
+  } catch (error) {
+    allTiles = [];
+  }
 
   return <AllTilesClient tiles={allTiles} />;
 }
